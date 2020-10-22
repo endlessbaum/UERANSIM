@@ -36,6 +36,7 @@ import tr.havelsan.ueransim.ngap0.NgapEncoding;
 import tr.havelsan.ueransim.ngap0.core.NGAP_BaseMessage;
 import tr.havelsan.ueransim.ngap0.ies.bit_strings.NGAP_AMFSetID;
 import tr.havelsan.ueransim.ngap0.ies.enumerations.NGAP_RRCEstablishmentCause;
+import tr.havelsan.ueransim.ngap0.ies.enumerations.NGAP_UEContextRequest;
 import tr.havelsan.ueransim.ngap0.ies.octet_strings.NGAP_NAS_PDU;
 import tr.havelsan.ueransim.ngap0.ies.octet_strings.NGAP_NGAP_Message;
 import tr.havelsan.ueransim.ngap0.ies.sequence_ofs.NGAP_AllowedNSSAI;
@@ -71,6 +72,7 @@ public class NgapNasTransport {
                 amfCtx.nextStream += 1;
             }
             ueCtx.uplinkStream = amfCtx.nextStream;
+            ngap.addProtocolIe(NGAP_UEContextRequest.REQUESTED);
         }
 
         if (nasMessage != null) {
